@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 会跳舞的光，了解一下 </title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <style>
+        .item, .wrap {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .item {
+            position: absolute;
+            background-color: #000;
+        }
+
+        video {
+            object-fit: fill;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .IIV::-webkit-media-controls-play-button,
+        video::-webkit-media-controls-start-playback-button {
+            opacity: 0;
+            pointer-events: none;
+            width: 5px;
+        }
+
+        .item.pre {
+            z-index: 888;
+        }
+
+        .item:not(:nth-child(1)).active {
+            position: fixed;
+            left: 0;
+            z-index: 999;
+            -webkit-animation: up 1s both;
+            -o-animation: up 1s both;
+            animation: up 1s both;
+        }
+
+        .item:first-child.active {
+            position: fixed;
+            left: 0;
+            z-index: 999;
+        }
+
+        @-webkit-keyframes up {
+            from {
+                top: 100%;
+            }
+            to {
+                top: 0;
+            }
+        }
+
+        .item:not(:last-child).down {
+            position: fixed;
+            left: 0;
+            z-index: 999;
+            -webkit-animation: down .6s both;
+            -o-animation: down .6s both;
+            animation: down .6s both;
+        }
+
+        @-webkit-keyframes down {
+            from {
+                top: -100%;
+            }
+            to {
+                top: 0;
+            }
+        }
+
+        .load-mask {
+            width: 100%;
+            height: 100%;
+            background-color: #0060ff;
+            background-image: url("./img/background.png");
+            background-size: 100% 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1099;
+            text-align: center;
+        }
+
+        .load-mask img {
+            width: 50%;
+            -webkit-transform-origin: center center;
+            -moz-transform-origin: center center;
+            -ms-transform-origin: center center;
+            -o-transform-origin: center center;
+            transform-origin: center center;
+            -webkit-animation: beat 2s both infinite;
+            -o-animation: beat 2s both infinite;
+            animation: beat 2s both infinite;
+        }
+
+        .start-btn {
+            color: #fff;
+            margin-top: 85px;
+            width: 230px;
+            height: 60px;
+            line-height: 60px;
+            background-image: url("./imgs/load-btn.png");
+            background-size: 100% 100%;
+            display: inline-block;
+            color: #000000;
+            font-size: 16px;
+        }
+
+        .load-bar {
+            display: none;
+            color: #fff;
+            margin-top: 85px;
+            width: 250px;
+            height: 30px;
+            background-image: url("./imgs/load-bar.png");
+            background-size: 100% 100%;
+            position: relative;
+            overflow: hidden;
+            padding: 6px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .bar {
+            background-color: #eeea38;
+            width: 10px;
+            height: 100%;
+        }
+
+        @keyframes beat {
+            0% {
+                -webkit-transform: scale3d(0.5, 0.5, 0.5);
+                -moz-transform: scale3d(0.5, 0.5, 0.5);
+                -ms-transform: scale3d(0.5, 0.5, 0.5);
+                -o-transform: scale3d(0.5, 0.5, 0.5);
+                transform: scale3d(0.5, 0.5, 0.5);
+            }
+            50% {
+                -webkit-transform: scale3d(1, 1, 1);
+                -moz-transform: scale3d(1, 1, 1);
+                -ms-transform: scale3d(1, 1, 1);
+                -o-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+            100% {
+                -webkit-transform: scale3d(0.5, 0.5, 0.5);
+                -moz-transform: scale3d(0.5, 0.5, 0.5);
+                -ms-transform: scale3d(0.5, 0.5, 0.5);
+                -o-transform: scale3d(0.5, 0.5, 0.5);
+                transform: scale3d(0.5, 0.5, 0.5);
+            }
+        }
+
+        .load-mask img {
+            margin-top: 150px;
+        }
+
+        .icon-play {
+            width: 41px;
+            height: 60px;
+            display: inline-block;
+            background-image: url("./imgs/icon-play.png");
+            background-size: 41px 60px;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 1;
+            -webkit-transform-origin: center center !important;
+            -moz-transform-origin: center center !important;
+            -ms-transform-origin: center center !important;
+            -o-transform-origin: center center !important;
+            transform-origin: center center !important;
+        }
+
+        .wrap-text {
+            position: absolute;
+            bottom: 0;
+            /* width: 33px; */
+            left: 0;
+            /* width: 100%; */
+            padding: 20px 35px 76px 35px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+            color: #fff;
+            background: -webkit-linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5)); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5)); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5)); /* Firefox 3.6 - 15 */
+            background: linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5)); /* 标准的语法 */
+        }
+
+        .user-name {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .user-des {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .wrap-icons {
+            position: absolute;
+            bottom: 160px;
+            width: 38px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .icon-love {
+            width: 38px;
+            height: 34px;
+            background-image: url("./imgs/love1.png");
+            display: inline-block;
+            background-size: 100% 100%;
+            background-position: center;
+        }
+
+        .icon-love.active {
+            background-image: url("./imgs/love2.png");
+        }
+
+        .icon-share {
+            margin-top: 20px;
+            width: 38px;
+            height: 32px;
+            display: inline-block;
+            background-image: url("./imgs/share.png");
+            background-size: 100% 100%;
+            background-position: center;
+        }
+
+        .wrap-icon-up {
+            position: absolute;
+            bottom: 30px;
+            text-align: center;
+            /* background-color: rebeccapurple; */
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .icon-up {
+            display: inline-block;
+            width: 36px;
+            height: 20px;
+            background-size: cover;
+            background-image: url("./imgs/arrow-down.png");
+            animation: slide_up .6s infinite ease-out both;
+            -webkit-animation: slide_up .6s infinite ease-out both;
+        }
+
+        @keyframes slide_up {
+            0% {
+                opacity: 0;
+                transform: translate(0, 4px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(0, -4px);
+            }
+        }
+
+        .mask-share {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .4);
+            position: absolute;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .share-img {
+            width: 130px;
+            height: 190px;
+            background-image: url("./imgs/share2.png");
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-size: 100% 100%;
+        }
+
+        .icon-user {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: url("./imgs/user-pic.png");
+            background-size: 100% 100%;
+            vertical-align: -15px;
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="item active">
+        <div class="icon-play"></div>
+        <video loop class="video" preload="auto" playsinline
+               x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
+               poster="./imgs/0-min.jpg"
+               src="./videos/0.mp4" type="video/mp4"></video>
+        <div class="wrap-icons">
+            <i class="icon-love"></i>
+            <span>16.5w</span>
+            <i class="icon-share"></i>
+            <span>转发</span>
+        </div>
+        <div class="wrap-text">
+            <div class="user-name">
+                <span class="icon-user"></span>@腾讯滨海大厦前台MM
+            </div>
+            <div class="user-des">不如跳舞，工作都不如跳舞，新大厦跳海草舞，黑科技给你天赋</div>
+        </div>
+
+    </div>
+    <div class="item">
+        <i class="icon-play"></i>
+        <video loop class="video" preload="auto" playsinline
+               x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
+               poster="./imgs/1-min.jpg"
+               src="./videos/1.mp4" type="video/mp4"></video>
+        <div class="wrap-icons">
+            <i class="icon-love"></i>
+            <span>13.2w</span>
+            <i class="icon-share"></i>
+            <span>转发</span>
+        </div>
+        <div class="wrap-text">
+            <div class="user-name"><span class="icon-user"></span>@腾讯鹏飞姐</div>
+            <div class="user-des">巴拉拉小魔仙，变身~</div>
+        </div>
+    </div>
+    <div class="item">
+        <i class="icon-play"></i>
+        <video loop class="video" preload="auto" playsinline
+               x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
+               poster="./imgs/3-min.jpg"
+               src="./videos/3.mp4" type="video/mp4"></video>
+        <div class="wrap-icons">
+            <i class="icon-love"></i>
+            <span>21.2w</span>
+            <i class="icon-share"></i>
+            <span>转发</span>
+        </div>
+        <div class="wrap-text">
+            <div class="user-name"><span class="icon-user"></span>@右手比左手粘的粘粘</div>
+            <div class="user-des">腾讯产品经理必备词汇lesson 1，都是知识点</div>
+        </div>
+    </div>
+    <div class="item">
+        <i class="icon-play"></i>
+        <video loop class="video" preload="auto" playsinline
+               x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
+               poster="./imgs/4-min.jpg"
+               src="./videos/4.mp4" type="video/mp4"></video>
+        <div class="wrap-icons">
+            <i class="icon-love"></i>
+            <span>22.8w</span>
+            <i class="icon-share"></i>
+            <span>转发</span>
+        </div>
+        <div class="wrap-text">
+            <div class="user-name"><span class="icon-user"></span>@大中华区腾讯公仔销售馕馕</div>
+            <div class="user-des">三长一短选……选B，嗯，选B</div>
+        </div>
+    </div>
+    <div class="item">
+        <i class="icon-play"></i>
+        <video loop class="video" preload="auto" playsinline
+               x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
+               poster="./imgs/5-min.jpg"
+               src="./videos/5.mp4" type="video/mp4"></video>
+        <div class="wrap-icons">
+            <i class="icon-love"></i>
+            <span>18.9w</span>
+            <i class="icon-share"></i>
+            <span>转发</span>
+        </div>
+        <div class="wrap-text">
+            <div class="user-name"><span class="icon-user"></span>@鹅厂wò谈会玥玥</div>
+            <div class="user-des">
+                腾讯实习了解一下嘛，好不好好不好嘛，记得关注“腾讯招聘”微信公众号哟
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <i class="icon-play"></i>
+        <video loop class="video" preload="auto" playsinline
+               x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
+               poster="./imgs/6-min.jpg"
+               src="./videos/6.mp4" type="video/mp4"></video>
+        <div class="wrap-icons">
+            <i class="icon-love"></i>
+            <span>19.5w</span>
+            <i class="icon-share"></i>
+            <span>转发</span>
+        </div>
+        <div class="wrap-text">
+            <div class="user-name"><span class="icon-user"></span>@我有一个好爸爸</div>
+            <div class="user-des">提问，我身后有多少个鹅厂妹纸</div>
+        </div>
+    </div>
+</div>
+<div class="load-mask">
+    <img src="img/color-world.png">
+</div>
+<div class="wrap-icon-up">
+    <i class="icon-up"></i>
+</div>
+<div class="mask-share">
+    <div class="share-img"></div>
+</div>
+
+<script src="./js/zepto.min.js"></script>
+
+<script>
+
+// TODO
+
+</script>
+
+
+</body>
+</html>
