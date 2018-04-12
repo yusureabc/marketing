@@ -6,8 +6,21 @@
     <title> 会跳舞的光，了解一下 </title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta name="x5-orientation" content="portrait">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: PingFangSC-Light, 'helvetica neue', arial, 'hiragino sans gb', 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+            background-color: #000;
+        }
+
         .item, .wrap {
             width: 100%;
             height: 100%;
@@ -175,7 +188,7 @@
             width: 41px;
             height: 60px;
             display: inline-block;
-            background-image: url("./imgs/icon-play.png");
+            background-image: url("./img/icon-play.png");
             background-size: 41px 60px;
             background-position: center;
             background-repeat: no-repeat;
@@ -239,14 +252,14 @@
         .icon-love {
             width: 38px;
             height: 34px;
-            background-image: url("./imgs/love1.png");
+            background-image: url("./img/love-1.png");
             display: inline-block;
             background-size: 100% 100%;
             background-position: center;
         }
 
         .icon-love.active {
-            background-image: url("./imgs/love2.png");
+            background-image: url("./img/love-2.png");
         }
 
         .icon-share {
@@ -254,7 +267,7 @@
             width: 38px;
             height: 32px;
             display: inline-block;
-            background-image: url("./imgs/share.png");
+            background-image: url("./img/share.png");
             background-size: 100% 100%;
             background-position: center;
         }
@@ -273,7 +286,7 @@
             width: 36px;
             height: 20px;
             background-size: cover;
-            background-image: url("./imgs/arrow-down.png");
+            background-image: url("./img/arrow-down.png");
             animation: slide_up .6s infinite ease-out both;
             -webkit-animation: slide_up .6s infinite ease-out both;
         }
@@ -303,7 +316,7 @@
         .share-img {
             width: 130px;
             height: 190px;
-            background-image: url("./imgs/share2.png");
+            background-image: url("./img/share-2.png");
             position: absolute;
             right: 20px;
             top: 20px;
@@ -324,117 +337,108 @@
 </head>
 <body>
 <div class="wrap">
-
+    <!-- Video 1 Start -->
     <div class="item active">
         <div class="icon-play"></div>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="./imgs/0-min.jpg"
-               src="./videos/0.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/1.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>16.5w</span>
             <i class="icon-share"></i>
             <span>转发</span>
         </div>
-        <div class="wrap-text">
-            <div class="user-name">
-                <span class="icon-user"></span>@腾讯滨海大厦前台MM
-            </div>
-            <div class="user-des">不如跳舞，工作都不如跳舞，新大厦跳海草舞，黑科技给你天赋</div>
-        </div>
-
     </div>
+    <!-- Video 1 End -->
+
+    <!-- Video 2 Start -->
     <div class="item">
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="./imgs/1-min.jpg"
-               src="./videos/1.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>13.2w</span>
             <i class="icon-share"></i>
             <span>转发</span>
         </div>
-        <div class="wrap-text">
-            <div class="user-name"><span class="icon-user"></span>@腾讯鹏飞姐</div>
-            <div class="user-des">巴拉拉小魔仙，变身~</div>
-        </div>
     </div>
+    <!-- Video 2 End -->
+
+    <!-- Video 3 Start -->
     <div class="item">
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="./imgs/3-min.jpg"
-               src="./videos/3.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>21.2w</span>
             <i class="icon-share"></i>
             <span>转发</span>
         </div>
-        <div class="wrap-text">
-            <div class="user-name"><span class="icon-user"></span>@右手比左手粘的粘粘</div>
-            <div class="user-des">腾讯产品经理必备词汇lesson 1，都是知识点</div>
-        </div>
     </div>
+    <!-- Video 3 End -->
+
+    <!-- Video 4 Start -->
     <div class="item">
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="./imgs/4-min.jpg"
-               src="./videos/4.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>22.8w</span>
             <i class="icon-share"></i>
             <span>转发</span>
         </div>
-        <div class="wrap-text">
-            <div class="user-name"><span class="icon-user"></span>@大中华区腾讯公仔销售馕馕</div>
-            <div class="user-des">三长一短选……选B，嗯，选B</div>
-        </div>
     </div>
+    <!-- Video 4 End -->
+
+    <!-- Video 5 Start -->
     <div class="item">
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="./imgs/5-min.jpg"
-               src="./videos/5.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>18.9w</span>
             <i class="icon-share"></i>
             <span>转发</span>
         </div>
-        <div class="wrap-text">
-            <div class="user-name"><span class="icon-user"></span>@鹅厂wò谈会玥玥</div>
-            <div class="user-des">
-                腾讯实习了解一下嘛，好不好好不好嘛，记得关注“腾讯招聘”微信公众号哟
-            </div>
-        </div>
     </div>
+    <!-- Video 5 End -->
+
+    <!-- Video 6 Start -->
     <div class="item">
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="./imgs/6-min.jpg"
-               src="./videos/6.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/6.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>19.5w</span>
             <i class="icon-share"></i>
             <span>转发</span>
         </div>
-        <div class="wrap-text">
-            <div class="user-name"><span class="icon-user"></span>@我有一个好爸爸</div>
-            <div class="user-des">提问，我身后有多少个鹅厂妹纸</div>
-        </div>
     </div>
+    <!-- Video 6 End -->
 </div>
 <div class="load-mask">
-    <img src="img/color-world.png">
+    <img src="./img/color-world.png">
+    <p class="start-btn">点击按钮，开启鹅厂之旅</p>
+    <div class="load-bar">
+        <div class="bar"></div>
+    </div>
 </div>
 <div class="wrap-icon-up">
     <i class="icon-up"></i>
@@ -444,13 +448,201 @@
 </div>
 
 <script src="./js/zepto.min.js"></script>
-
+<script src="./js/event.js"></script>
 <script>
 
-// TODO
+    Zepto(function($) {
+        var startBtn = document.getElementsByClassName('start-btn')[0],
+            u = navigator.userAgent,
+            items = $('.item'),
+            lenth = items.length,
+            startX, startY, endX, endY, flag, loveIcons = document.getElementsByClassName('icon-love'),
+            shareIcons = document.getElementsByClassName('icon-share'),
+            playIcons = document.getElementsByClassName('icon-play'),
+            videos = document.getElementsByClassName('video'),
+            showMask = document.getElementsByClassName('mask-share')[0],
+            isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1,
+            isiOS = !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        isiOS && startBtn.addEventListener('touchstart', startFn);
+        !isiOS && startBtn.addEventListener('click', startFn);
+
+        function startFn(e) {
+            console.log(e);
+            var self = isiOS ? e.touches[0].target : e.target;
+            self.style.display = 'none';
+            $('.load-bar')[0].style.display = 'inline-block';
+            $('video').forEach(function(item, index) {
+                item.muted = true
+            });
+            var barW = 1,
+                rqst, bar = document.getElementsByClassName('bar')[0];
+
+            function animate() {
+                bar.style.width = barW + (230 - barW) * 0.015 + 'px';
+                barW = barW + (230 - barW) * 0.02;
+                rqst = requestAnimationFrame(animate)
+            }
+            animate();
+            setTimeout(function() {
+                $('video').forEach(function(item, index) {
+                    item.currentTime = 0;
+                    item.muted = false;
+                    var playIcon = $($(item).prev('.icon-play')[0]);
+                    item.addEventListener('playing', function() {
+                        playIcon.hide()
+                    });
+                    item.addEventListener('pause', function() {
+                        playIcon.show()
+                    });
+                    index !== 0 ? item.pause() : item.play()
+                });
+                setTimeout(function() {
+                    $('.load-mask').hide();
+                    cancelAnimationFrame(rqst)
+                }, 400)
+            }, 7000)
+        }
+        document.addEventListener('touchstart', function(e) {
+            isiOS && e.preventDefault();
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            document.addEventListener('touchmove', touchMoveHandler)
+        });
+
+        function touchMoveHandler(e) {
+            isiOS && e.preventDefault();
+            endX = e.changedTouches[0].clientX;
+            endY = e.changedTouches[0].clientY;
+            var index = $($(e.changedTouches[0].target).parents('.item')).index();
+            if (endY - startY > 100) {
+                flag = 'swipeDown';
+                if (index <= lenth - 1) {
+                    $('.wrap-icon-up').show()
+                }
+                if (index < lenth && index >= 1) {
+                    items.removeClass('active down pre');
+                    $(items[index - 1]).addClass('down');
+                    $(items[index - 1]).find('video')[0].play();
+                    $(items[index]).addClass('pre');
+                    $(items[index]).find('video')[0].pause();
+                    document.removeEventListener('touchmove', touchMoveHandler)
+                }
+            } else {
+                if (Math.abs(endY - startY) > 100) {
+                    flag = 'swipeUp';
+                    if (index === lenth - 1) {
+                        $('.mask-share').show()
+                    }
+                    if (index < lenth - 1 && index >= 0) {
+                        items.removeClass('active down pre');
+                        $(items[index + 1]).addClass('active');
+                        $(items[index + 1]).find('video')[0].play();
+                        $(items[index]).addClass('pre');
+                        $(items[index]).find('video')[0].pause()
+                    }
+                    document.removeEventListener('touchmove', touchMoveHandler)
+                }
+            }
+        }
+        for (var j = 0; j < loveIcons.length; j++) {
+            loveIcons[j].addEventListener('touchstart', function() {
+                $(this).addClass('active')
+            });
+            shareIcons[j].addEventListener('touchstart', function() {
+                $('.mask-share').show()
+            });
+            isAndroid && playIcons[j].addEventListener('click', function(e) {
+                e.stopPropagation();
+                $(this).next('video')[0].play()
+            });
+            !isAndroid && playIcons[j].addEventListener('touchstart', function(e) {
+                e.stopPropagation();
+                $(this).next('video')[0].play()
+            });
+            videos[j].addEventListener('touchstart', function() {
+                this.pause()
+            })
+        }
+        showMask.addEventListener('touchstart', function() {
+            $(this).hide()
+        });
+        var wechatHref = location.href,
+            imgUrl;
+        if (wechatHref.indexOf('index') === -1) {
+            imgUrl = wechatHref + 'imgs/share.jpeg'
+        } else {
+            imgUrl = wechatHref.split('index')[0] + 'imgs/share.jpeg'
+        }
+        console.log(imgUrl);
+        var lineLink = location.href;
+        var shareTitle = '鹅厂生活了解一下';
+        var desc = '鹅有一支海草舞，不知当跳不当跳';
+        var appid = '';
+
+        function shareFriend() {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "appid": appid,
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": desc,
+                "title": shareTitle
+            }, function(res) {})
+        }
+        function shareTimeline() {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "title": shareTitle,
+                "desc": shareTitle
+            }, function(res) {})
+        }
+        function shareWeibo() {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": shareTitle,
+                "url": lineLink
+            }, function(res) {})
+        }
+        if (typeof WeixinJSBridge == 'object') {
+            WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+                shareFriend()
+            });
+            WeixinJSBridge.on('menu:share:timeline', function(argv) {
+                shareTimeline()
+            });
+            WeixinJSBridge.on('menu:share:weibo', function(argv) {
+                shareWeibo()
+            })
+        } else {
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+                    shareFriend()
+                });
+                WeixinJSBridge.on('menu:share:timeline', function(argv) {
+                    shareTimeline()
+                });
+                WeixinJSBridge.on('menu:share:weibo', function(argv) {
+                    shareWeibo()
+                })
+            }, false)
+        }
+    });
 
 </script>
-
+<!-- <script>
+    var _mtac = {};
+    (function () {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500600506");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script> -->
 
 </body>
 </html>
