@@ -126,7 +126,7 @@
             width: 230px;
             height: 60px;
             line-height: 60px;
-            background-image: url("./imgs/load-btn.png");
+            /*background-image: url("./imgs/load-btn.png");*/
             background-size: 100% 100%;
             display: inline-block;
             color: #000000;
@@ -139,7 +139,7 @@
             margin-top: 85px;
             width: 250px;
             height: 30px;
-            background-image: url("./imgs/load-bar.png");
+            /*background-image: url("./imgs/load-bar.png");*/
             background-size: 100% 100%;
             position: relative;
             overflow: hidden;
@@ -342,7 +342,7 @@
         <div class="icon-play"></div>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./imgs/0-min.jpg"
+               poster="./img/1_Moment.jpg"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/1.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -358,7 +358,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./imgs/1-min.jpg"
+               poster="./img/2_Moment.jpg"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -374,7 +374,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./imgs/3-min.jpg"
+               poster="./img/3_Moment.jpg"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -390,7 +390,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./imgs/4-min.jpg"
+               poster="./img/4_Moment.jpg"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -406,7 +406,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./imgs/5-min.jpg"
+               poster="./img/5_Moment.jpg"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -422,7 +422,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./imgs/6-min.jpg"
+               poster="./img/6_Moment.jpg"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/6.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -433,6 +433,8 @@
     </div>
     <!-- Video 6 End -->
 </div>
+
+
 <div class="load-mask">
     <img src="./img/color-world.png">
     <p class="start-btn">点击按钮，开启鹅厂之旅</p>
@@ -450,7 +452,6 @@
 <script src="./js/zepto.min.js"></script>
 <script src="./js/event.js"></script>
 <script>
-
     Zepto(function($) {
         var startBtn = document.getElementsByClassName('start-btn')[0],
             u = navigator.userAgent,
@@ -569,14 +570,15 @@
         var wechatHref = location.href,
             imgUrl;
         if (wechatHref.indexOf('index') === -1) {
-            imgUrl = wechatHref + 'imgs/share.jpeg'
+            imgUrl = wechatHref + 'img/share.jpeg'
         } else {
-            imgUrl = wechatHref.split('index')[0] + 'imgs/share.jpeg'
+            imgUrl = wechatHref.split('index')[0] + 'img/share.jpeg'
         }
-        // console.log(imgUrl);
+        alert( imgUrl );
+        console.log(imgUrl);
         var lineLink = location.href;
-        var shareTitle = '鹅厂生活了解一下';
-        var desc = '鹅有一支海草舞，不知当跳不当跳';
+        var shareTitle = '会跳舞的光，了解一下';
+        var desc = '会跳舞的光，不知当跳不当跳';
         var appid = '';
 
         function shareFriend() {
