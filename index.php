@@ -1,3 +1,8 @@
+<?php
+    require_once "jssdk.php";
+    $jssdk = new JSSDK("wx196d136af4b7adab", "916f1c81827c9aa61c2e4a72258894e9");
+    $signPackage = $jssdk->GetSignPackage();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +23,27 @@
             overflow: hidden;
             font-family: PingFangSC-Light, 'helvetica neue', arial, 'hiragino sans gb', 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
             background-color: #000;
+        }
+
+        @media screen and (max-width:359px) and (min-width:320px) {
+            html,body{
+                font-size: 8px !important;
+            }
+        }
+        @media screen and (max-width:374px) and (min-width:360px) {
+            html,body{
+                font-size: 9px !important;
+            }
+        }
+        @media screen and (max-width:409px) and (min-width:375px) {
+           html,body{
+                font-size: 10px !important;
+            }
+        }
+        @media screen and (max-width:639px)  and (min-width:410px){
+           html,body{
+                font-size: 11px !important;
+            }
         }
 
         .item, .wrap {
@@ -97,8 +123,10 @@
         .load-mask {
             width: 100%;
             height: 100%;
-            background-color: #0060ff;
+            background-color: #7b8390;
+            /*background: linear-gradient( #FF0600, #FFFE00, #05FF00, #0003FF, #FF00D7 ); */
             background-image: url("./img/background.png");
+            background-attachment: scroll;
             background-size: 100% 100%;
             position: fixed;
             left: 0;
@@ -107,52 +135,48 @@
             text-align: center;
         }
 
-        .load-mask img {
-            width: 50%;
+        .load-mask > img {
+            width: 100%;
             -webkit-transform-origin: center center;
             -moz-transform-origin: center center;
             -ms-transform-origin: center center;
             -o-transform-origin: center center;
             transform-origin: center center;
-            -webkit-animation: beat 2s both infinite;
-            -o-animation: beat 2s both infinite;
-            animation: beat 2s both infinite;
         }
 
         .start-btn {
-            color: #fff;
-            margin-top: 85px;
-            width: 230px;
-            height: 60px;
-            line-height: 60px;
-            /*background-image: url("./imgs/load-btn.png");*/
-            background-size: 100% 100%;
-            display: inline-block;
-            color: #000000;
-            font-size: 16px;
+            width: 25.7rem !important;
+            height: 6.5rem !important;
+            margin-bottom: -13rem !important;
+        }
+
+        .start-btn > img
+        {
+            width: 25.7rem;
+            height: 6.5rem;
         }
 
         .load-bar {
             display: none;
-            color: #fff;
             margin-top: 85px;
-            width: 250px;
-            height: 30px;
-            /*background-image: url("./imgs/load-bar.png");*/
+            width: 23.5rem;
+            height: 2.8rem;
             background-size: 100% 100%;
             position: relative;
             overflow: hidden;
-            padding: 6px;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
             text-align: left;
+            border: 3px solid #000000; 
+            border-radius: 8px;
+            background-color: #3b3b3b;
         }
 
         .bar {
-            background-color: #eeea38;
-            width: 10px;
-            height: 100%;
+            background-color: #fdffc0;
+            height: 2.2rem;
+            border-radius: 8px 0 0 8px;
         }
 
         @keyframes beat {
@@ -180,7 +204,7 @@
         }
 
         .load-mask img {
-            margin-top: 150px;
+            margin-top: 2.9rem;
         }
 
         .icon-play {
@@ -275,7 +299,6 @@
             position: absolute;
             bottom: 30px;
             text-align: center;
-            /* background-color: rebeccapurple; */
             width: 100%;
             z-index: 1000;
         }
@@ -334,7 +357,9 @@
 
     </style>
 </head>
+
 <body>
+
 <div class="wrap">
     <!-- Video 1 Start -->
     <div class="item active">
@@ -433,10 +458,10 @@
     <!-- Video 6 End -->
 </div>
 
-
 <div class="load-mask">
     <img src="./img/color-world.png">
-    <p class="start-btn">点击按钮，开启鹅厂之旅</p>
+    <img id="pserson_img" src="./img/person-1.png">
+    <img class="start-btn" src="./img/click-button.png">
     <div class="load-bar">
         <div class="bar"></div>
     </div>
@@ -452,186 +477,166 @@
 <script src="./js/event.js"></script>
 <script>
     Zepto(function($) {
-        var startBtn = document.getElementsByClassName('start-btn')[0],
-            u = navigator.userAgent,
-            items = $('.item'),
-            lenth = items.length,
-            startX, startY, endX, endY, flag, loveIcons = document.getElementsByClassName('icon-love'),
-            shareIcons = document.getElementsByClassName('icon-share'),
-            playIcons = document.getElementsByClassName('icon-play'),
-            videos = document.getElementsByClassName('video'),
-            showMask = document.getElementsByClassName('mask-share')[0],
-            isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1,
-            isiOS = !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        isiOS && startBtn.addEventListener('touchstart', startFn);
-        !isiOS && startBtn.addEventListener('click', startFn);
+      var startBtn = document.getElementsByClassName('start-btn')[0],
+          u = navigator.userAgent,
+          items = $('.item'),
+          lenth = items.length,
+          startX, startY, endX, endY, flag, loveIcons = document.getElementsByClassName('icon-love'),
+          shareIcons = document.getElementsByClassName('icon-share'),
+          playIcons = document.getElementsByClassName('icon-play'),
+          videos = document.getElementsByClassName('video'),
+          showMask = document.getElementsByClassName('mask-share')[0],
+          isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1,
+          isiOS = !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+      isiOS && startBtn.addEventListener('touchstart', startFn);
+      !isiOS && startBtn.addEventListener('click', startFn);
 
-        function startFn(e) {
-            console.log(e);
-            var self = isiOS ? e.touches[0].target : e.target;
-            self.style.display = 'none';
-            $('.load-bar')[0].style.display = 'inline-block';
-            $('video').forEach(function(item, index) {
-                item.muted = true
-            });
-            var barW = 1,
-                rqst, bar = document.getElementsByClassName('bar')[0];
+      function startFn(e) {
+          // console.log(e);
+          var self = isiOS ? e.touches[0].target : e.target;
+          self.style.display = 'none';
+          $('.load-bar')[0].style.display = 'inline-block';
+          $('video').forEach(function(item, index) {
+              item.muted = true
+          });
+          var barW = 1,
+              rqst, bar = document.getElementsByClassName('bar')[0];
 
-            function animate() {
-                bar.style.width = barW + (230 - barW) * 0.015 + 'px';
-                barW = barW + (230 - barW) * 0.02;
-                rqst = requestAnimationFrame(animate)
-            }
-            animate();
-            setTimeout(function() {
-                $('video').forEach(function(item, index) {
-                    item.currentTime = 0;
-                    item.muted = false;
-                    var playIcon = $($(item).prev('.icon-play')[0]);
-                    item.addEventListener('playing', function() {
-                        playIcon.hide()
-                    });
-                    item.addEventListener('pause', function() {
-                        playIcon.show()
-                    });
-                    index !== 0 ? item.pause() : item.play()
-                });
-                setTimeout(function() {
-                    $('.load-mask').hide();
-                    cancelAnimationFrame(rqst)
-                }, 400)
-            }, 7000)
-        }
-        document.addEventListener('touchstart', function(e) {
-            isiOS && e.preventDefault();
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-            document.addEventListener('touchmove', touchMoveHandler)
-        });
+          function animate() {
+              bar.style.width = barW + (230 - barW) * 0.015 + 'px';
+              barW = barW + (230 - barW) * 0.02;
+              rqst = requestAnimationFrame(animate)
+          }
+          animate();
+          setTimeout(function() {
+              $('video').forEach(function(item, index) {
+                  item.currentTime = 0;
+                  item.muted = false;
+                  var playIcon = $($(item).prev('.icon-play')[0]);
+                  item.addEventListener('playing', function() {
+                      playIcon.hide()
+                  });
+                  item.addEventListener('pause', function() {
+                      playIcon.show()
+                  });
+                  index !== 0 ? item.pause() : item.play()
+              });
+              setTimeout(function() {
+                  $('.load-mask').hide();
+                  cancelAnimationFrame(rqst)
+              }, 400)
+          }, 7000)
+      }
+      document.addEventListener('touchstart', function(e) {
+          isiOS && e.preventDefault();
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          document.addEventListener('touchmove', touchMoveHandler)
+      });
 
-        function touchMoveHandler(e) {
-            isiOS && e.preventDefault();
-            endX = e.changedTouches[0].clientX;
-            endY = e.changedTouches[0].clientY;
-            var index = $($(e.changedTouches[0].target).parents('.item')).index();
-            if (endY - startY > 100) {
-                flag = 'swipeDown';
-                if (index <= lenth - 1) {
-                    $('.wrap-icon-up').show()
-                }
-                if (index < lenth && index >= 1) {
-                    items.removeClass('active down pre');
-                    $(items[index - 1]).addClass('down');
-                    $(items[index - 1]).find('video')[0].play();
-                    $(items[index]).addClass('pre');
-                    $(items[index]).find('video')[0].pause();
-                    document.removeEventListener('touchmove', touchMoveHandler)
-                }
-            } else {
-                if (Math.abs(endY - startY) > 100) {
-                    flag = 'swipeUp';
-                    if (index === lenth - 1) {
-                        $('.mask-share').show()
-                    }
-                    if (index < lenth - 1 && index >= 0) {
-                        items.removeClass('active down pre');
-                        $(items[index + 1]).addClass('active');
-                        $(items[index + 1]).find('video')[0].play();
-                        $(items[index]).addClass('pre');
-                        $(items[index]).find('video')[0].pause()
-                    }
-                    document.removeEventListener('touchmove', touchMoveHandler)
-                }
-            }
-        }
-        for (var j = 0; j < loveIcons.length; j++) {
-            loveIcons[j].addEventListener('touchstart', function() {
-                $(this).addClass('active')
-            });
-            shareIcons[j].addEventListener('touchstart', function() {
-                $('.mask-share').show()
-            });
-            isAndroid && playIcons[j].addEventListener('click', function(e) {
-                e.stopPropagation();
-                $(this).next('video')[0].play()
-            });
-            !isAndroid && playIcons[j].addEventListener('touchstart', function(e) {
-                e.stopPropagation();
-                $(this).next('video')[0].play()
-            });
-            videos[j].addEventListener('touchstart', function() {
-                this.pause()
-            })
-        }
-        showMask.addEventListener('touchstart', function() {
-            $(this).hide()
-        });
+      function touchMoveHandler(e) {
+          isiOS && e.preventDefault();
+          endX = e.changedTouches[0].clientX;
+          endY = e.changedTouches[0].clientY;
+          var index = $($(e.changedTouches[0].target).parents('.item')).index();
+          if (endY - startY > 100) {
+              flag = 'swipeDown';
+              if (index <= lenth - 1) {
+                  $('.wrap-icon-up').show()
+              }
+              if (index < lenth && index >= 1) {
+                  items.removeClass('active down pre');
+                  $(items[index - 1]).addClass('down');
+                  $(items[index - 1]).find('video')[0].play();
+                  $(items[index]).addClass('pre');
+                  $(items[index]).find('video')[0].pause();
+                  document.removeEventListener('touchmove', touchMoveHandler)
+              }
+          } else {
+              if (Math.abs(endY - startY) > 100) {
+                  flag = 'swipeUp';
+                  if (index === lenth - 1) {
+                      $('.mask-share').show()
+                  }
+                  if (index < lenth - 1 && index >= 0) {
+                      items.removeClass('active down pre');
+                      $(items[index + 1]).addClass('active');
+                      $(items[index + 1]).find('video')[0].play();
+                      $(items[index]).addClass('pre');
+                      $(items[index]).find('video')[0].pause()
+                  }
+                  document.removeEventListener('touchmove', touchMoveHandler)
+              }
+          }
+      }
+      for (var j = 0; j < loveIcons.length; j++) {
+          loveIcons[j].addEventListener('touchstart', function() {
+              $(this).addClass('active')
+          });
+          shareIcons[j].addEventListener('touchstart', function() {
+              $('.mask-share').show()
+          });
+          isAndroid && playIcons[j].addEventListener('click', function(e) {
+              e.stopPropagation();
+              $(this).next('video')[0].play()
+          });
+          !isAndroid && playIcons[j].addEventListener('touchstart', function(e) {
+              e.stopPropagation();
+              $(this).next('video')[0].play()
+          });
+          videos[j].addEventListener('touchstart', function() {
+              this.pause()
+          })
+      }
+      showMask.addEventListener('touchstart', function() {
+          $(this).hide()
+      });
+    });
+    /* 人物切换效果 */
+    $( function() {
+      setInterval( function() {
+          var img_selector = $( '#pserson_img' );
+          var pserson_src = img_selector.attr( 'src' );
+          if ( pserson_src.indexOf( 'person-1' ) >= 0 )
+          {
+              img_selector.attr( 'src', './img/person-2.png' );
+          }
+          else
+          {
+              img_selector.attr( 'src', './img/person-1.png' );
+          }
+      }, 600 );
     });
 </script>
-
-<script type="text/javascript">
-    var imgUrl = 'https://www.baidu.com/img/bd_logo1.png';  // 分享后展示的一张图片  
-    var lineLink = 'http://www.baidu.com'; // 点击分享后跳转的页面地址  
-    var descContent = "描述信息";  // 分享后的描述信息  
-    var shareTitle = '标题';  // 分享后的标题  
-    var appid = '';  //应用id,如果有可以填，没有就留空  
-      
-    function shareFriend() {  
-        WeixinJSBridge.invoke('sendAppMessage',{  
-            "appid": appid,  
-            "img_url": imgUrl,  
-            "img_width": "200",  
-            "img_height": "200",  
-            "link": lineLink,  
-            "desc": descContent,  
-            "title": shareTitle  
-        }, function(res) {  
-            //_report('send_msg', res.err_msg);  // 这是回调函数，必须注释掉  
-        })  
-      
-    }  
-      
-    function shareTimeline() {  
-        WeixinJSBridge.invoke('shareTimeline',{  
-            "img_url": imgUrl,  
-            "img_width": "200",  
-            "img_height": "200",  
-            "link": lineLink,  
-            "desc": descContent,  
-            "title": shareTitle  
-            }, function(res) {  
-           //_report('timeline', res.err_msg); // 这是回调函数，必须注释掉  
-      
-        });  
-    }  
-      
-    function shareWeibo() {  
-        WeixinJSBridge.invoke('shareWeibo',{  
-            "content": descContent,  
-            "url": lineLink,  
-        }, function(res) {  
-            //_report('weibo', res.err_msg);  
-        });  
-    }  
-      
-      // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。  
-      
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {  
-        // 发送给好友  
-        WeixinJSBridge.on('menu:share:appmessage', function(argv){  
-            shareFriend();  
-        });  
-      
-        // 分享到朋友圈  
-        WeixinJSBridge.on('menu:share:timeline', function(argv){  
-            shareTimeline();  
-        });  
-        // 分享到微博  
-        WeixinJSBridge.on('menu:share:weibo', function(argv){  
-            shareWeibo();  
-        });  
-    }, false);  
-</script>
-
 </body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  wx.config({
+    debug: false,
+    appId: '<?php echo $signPackage["appId"];?>',
+    timestamp: <?php echo $signPackage["timestamp"];?>,
+    nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+    signature: '<?php echo $signPackage["signature"];?>',
+    jsApiList: [
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage'
+    ]
+  });
+  wx.ready(function () {
+    wx.onMenuShareAppMessage({
+        title: '会跳舞的光，了解一下', // 分享标题
+        desc: '会跳舞的光，不知当跳不当跳', // 分享描述
+        link: 'http://weixin.yeelight.com/marketing/index.php', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: 'http://weixin.yeelight.com/marketing/img/share.jpeg', // 分享图标
+        type: '', // 分享类型,music、video或link，不填默认为link
+        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        success: function () {
+            
+        },
+        cancel: function () {
+            
+        }
+    });
+  });
+</script>
 </html>
