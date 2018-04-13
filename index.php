@@ -132,11 +132,9 @@
             width: 100%;
             height: 100%;
             background-color: #7b8390;
-            /*background: linear-gradient( #FF0600, #FFFE00, #05FF00, #0003FF, #FF00D7 ); */
-            background-image: url("./img/background-color.png");
-            /*background-width: 100%;*/
+            background-image: url("./img/background-color.webp?ver=2018041302");
             background-size: 100% auto;
-            animation: animatedBird 6s linear infinite;
+            animation: animatedBird 2.8s linear infinite;
             position: fixed;
             left: 0;
             top: 0;
@@ -347,7 +345,7 @@
         .share-img {
             width: 130px;
             height: 190px;
-            background-image: url("./img/share-2.png");
+            background-image: url("./img/share-2.webp");
             position: absolute;
             right: 20px;
             top: 20px;
@@ -375,7 +373,7 @@
         <div class="icon-play"></div>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/1_Moment.jpg?ver=2018041301"
+               poster="./img/1_Moment.webp?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/1.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -391,7 +389,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/2_Moment.jpg?ver=2018041301"
+               poster="./img/2_Moment.webp?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -407,7 +405,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/3_Moment.jpg?ver=2018041301"
+               poster="./img/3_Moment.webp?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -423,7 +421,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/4_Moment.jpg?ver=2018041301"
+               poster="./img/4_Moment.webp?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -439,7 +437,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/5_Moment.jpg?ver=2018041301"
+               poster="./img/5_Moment.webp?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -455,7 +453,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/6_Moment.jpg?ver=2018041301"
+               poster="./img/6_Moment.webp?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/6.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -468,8 +466,8 @@
 </div>
 
 <div class="load-mask">
-    <img src="./img/color-world.png">
-    <img id="pserson_img" src="./img/person-1.png">
+    <img src="./img/color-world.webp">
+    <img id="pserson_img" src="./img/person-1.webp">
     <img class="start-btn" src="./img/click-button.png">
     <div class="load-bar">
         <div class="bar"></div>
@@ -528,7 +526,7 @@
                   item.addEventListener('pause', function() {
                       playIcon.show()
                   });
-                  index !== 0 ? item.pause() : item.play()
+                  // index !== 0 ? item.pause() : item.play()
               });
               setTimeout(function() {
                   $('.load-mask').hide();
@@ -608,11 +606,11 @@
           var pserson_src = img_selector.attr( 'src' );
           if ( pserson_src.indexOf( 'person-1' ) >= 0 )
           {
-              img_selector.attr( 'src', './img/person-2.png' );
+              img_selector.attr( 'src', './img/person-2.webp' );
           }
           else
           {
-              img_selector.attr( 'src', './img/person-1.png' );
+              img_selector.attr( 'src', './img/person-1.webp' );
           }
       }, 500 );
     });
@@ -631,20 +629,32 @@
       'onMenuShareAppMessage'
     ]
   });
+
+  var title  = '会跳舞的光，了解一下';
+  var desc   = '会跳舞的光，不知当跳不当跳';
+  var link   = 'http://weixin.yeelight.com/marketing/index.php';
+  var imgUrl = 'http://weixin.yeelight.com/marketing/img/share-3.png';
+
   wx.ready(function () {
     wx.onMenuShareAppMessage({
-        title: '会跳舞的光，了解一下',
-        desc: '会跳舞的光，不知当跳不当跳',
-        link: 'http://weixin.yeelight.com/marketing/index.php',
-        imgUrl: 'http://weixin.yeelight.com/marketing/img/share.jpeg',
+        title: title,
+        desc: desc,
+        link: link,
+        imgUrl: imgUrl,
         type: '',
         dataUrl: '',
         success: function () {
             
         },
-        cancel: function () {
+    });
+
+    wx.onMenuShareTimeline({
+        title: title,
+        link: link,
+        imgUrl: imgUrl,
+        success: function () {
             
-        }
+        },
     });
   });
 </script>
