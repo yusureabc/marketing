@@ -147,7 +147,7 @@
         .start-btn {
             width: 25.7rem !important;
             height: 6.5rem !important;
-            margin-bottom: -13rem !important;
+            /*margin-bottom: -13rem !important;*/
         }
 
         .start-btn > img
@@ -158,7 +158,7 @@
 
         .load-bar {
             display: none;
-            margin-top: 85px;
+            margin-top: 50px;
             width: 23.5rem;
             height: 2.8rem;
             background-size: 100% 100%;
