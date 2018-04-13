@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        @keyframes animatedBird {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 0% 25%; }
+            50% { background-position: 0% 50%; }
+            75% { background-position: 0% 75%; }
+            100% { background-position: 0% 100%;  }
+        }
+        .animate-area {
+            width: 1000px;
+            height: 300px;
+            background-image: url( http://test.com/marketing/img/background-blue.png );
+            background-size: 100% auto;
+            animation: animatedBird 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="animate-area"></div>
+</body>
+</html>

@@ -120,14 +120,23 @@
             }
         }
 
+        @keyframes animatedBird {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 0% 25%; }
+            50% { background-position: 0% 50%; }
+            75% { background-position: 0% 75%; }
+            100% { background-position: 0% 100%;  }
+        }
+
         .load-mask {
             width: 100%;
             height: 100%;
             background-color: #7b8390;
             /*background: linear-gradient( #FF0600, #FFFE00, #05FF00, #0003FF, #FF00D7 ); */
-            background-image: url("./img/background.png");
-            background-attachment: scroll;
-            background-size: 100% 100%;
+            background-image: url("./img/background-color.png");
+            /*background-width: 100%;*/
+            background-size: 100% auto;
+            animation: animatedBird 6s linear infinite;
             position: fixed;
             left: 0;
             top: 0;
@@ -275,14 +284,14 @@
         .icon-love {
             width: 38px;
             height: 34px;
-            background-image: url("./img/love-1.png");
+            background-image: url("./img/love-1.png?ver=2018041301");
             display: inline-block;
             background-size: 100% 100%;
             background-position: center;
         }
 
         .icon-love.active {
-            background-image: url("./img/love-2.png");
+            background-image: url("./img/love-2.png?ver=2018041301");
         }
 
         .icon-share {
@@ -290,7 +299,7 @@
             width: 38px;
             height: 32px;
             display: inline-block;
-            background-image: url("./img/share.png");
+            background-image: url("./img/share.png?ver=2018041301");
             background-size: 100% 100%;
             background-position: center;
         }
@@ -308,7 +317,7 @@
             width: 40px;
             height: 25px;
             background-size: cover;
-            background-image: url("./img/arrow-down.png");
+            background-image: url("./img/arrow-down.png?ver=2018041301");
             animation: slide_up .6s infinite ease-out both;
             -webkit-animation: slide_up .6s infinite ease-out both;
         }
@@ -366,7 +375,7 @@
         <div class="icon-play"></div>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/1_Moment.jpg"
+               poster="./img/1_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/1.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -382,7 +391,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/2_Moment.jpg"
+               poster="./img/2_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -398,7 +407,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/3_Moment.jpg"
+               poster="./img/3_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -414,7 +423,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/4_Moment.jpg"
+               poster="./img/4_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -430,7 +439,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/5_Moment.jpg"
+               poster="./img/5_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -446,7 +455,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/6_Moment.jpg"
+               poster="./img/6_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/6.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -605,7 +614,7 @@
           {
               img_selector.attr( 'src', './img/person-1.png' );
           }
-      }, 600 );
+      }, 500 );
     });
 </script>
 </body>
@@ -624,12 +633,12 @@
   });
   wx.ready(function () {
     wx.onMenuShareAppMessage({
-        title: '会跳舞的光，了解一下', // 分享标题
-        desc: '会跳舞的光，不知当跳不当跳', // 分享描述
-        link: 'http://weixin.yeelight.com/marketing/index.php', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: 'http://weixin.yeelight.com/marketing/img/share.jpeg', // 分享图标
-        type: '', // 分享类型,music、video或link，不填默认为link
-        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        title: '会跳舞的光，了解一下',
+        desc: '会跳舞的光，不知当跳不当跳',
+        link: 'http://weixin.yeelight.com/marketing/index.php',
+        imgUrl: 'http://weixin.yeelight.com/marketing/img/share.jpeg',
+        type: '',
+        dataUrl: '',
         success: function () {
             
         },
