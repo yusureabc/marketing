@@ -531,8 +531,8 @@
               setTimeout(function() {
                   $('.load-mask').hide();
                   cancelAnimationFrame(rqst)
-              }, 400)
-          }, 7000)
+              }, 200)
+          }, 2000)
       }
       document.addEventListener('touchstart', function(e) {
           isiOS && e.preventDefault();
