@@ -448,22 +448,6 @@
         </div>
     </div>
     <!-- Video 5 End -->
-
-    <!-- Video 6 Start -->
-    <div class="item">
-        <i class="icon-play"></i>
-        <video loop class="video" preload="auto" playsinline
-               x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="<?php echo $imgPrefix; ?>/img/6_Moment.jpg?ver=2018041301"
-               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/6.mp4" type="video/mp4"></video>
-        <div class="wrap-icons">
-            <i class="icon-love"></i>
-            <span>19.5w</span>
-            <i class="icon-share"></i>
-            <span>转发</span>
-        </div>
-    </div>
-    <!-- Video 6 End -->
 </div>
 
 <div class="load-mask">
