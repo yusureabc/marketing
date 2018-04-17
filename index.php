@@ -1,8 +1,17 @@
 <?php
+    require './vendor/autoload.php';
     require_once "jssdk.php";
     $jssdk = new JSSDK("wx196d136af4b7adab", "916f1c81827c9aa61c2e4a72258894e9");
     $signPackage = $jssdk->GetSignPackage();
     $imgPrefix = 'https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing';
+
+    $client = new Predis\Client([
+        'scheme' => 'tcp',
+        'host'   => '192.168.48.128',
+        'port'   => 6379,
+    ]);
+    /* 访问总数 */
+    $client->incr( 'marketing:access_sum' );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -439,7 +448,7 @@
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="<?php echo $imgPrefix; ?>/img/5_Moment.jpg?ver=2018041301"
-               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4?ver=2018041701" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>18.9w</span>
@@ -632,7 +641,7 @@
         type: '',
         dataUrl: '',
         success: function () {
-            
+            <?php $client->incr( 'marketing:forward_sum' ); ?>
         },
     });
 
@@ -641,7 +650,7 @@
         link: link,
         imgUrl: imgUrl,
         success: function () {
-            
+            <?php $client->incr( 'marketing:forward_sum' ); ?>
         },
     });
   });
