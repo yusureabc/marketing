@@ -5,13 +5,22 @@
     $signPackage = $jssdk->GetSignPackage();
     $imgPrefix = 'https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing';
 
-    $client = new Predis\Client([
+    $client = new Predis\Client(array(
         'scheme' => 'tcp',
         'host'   => '192.168.48.128',
-        'port'   => 6379,
-    ]);
-    /* 访问总数 */
-    $client->incr( 'marketing:access_sum' );
+        'port'   => 6379
+    ));
+
+    if ( isset( $_GET['share'] ) )
+    {
+        /* 分享总数 */
+        return $client->incr( 'marketing:forward_sum' );
+    }
+    else
+    {
+        /* 访问总数 */
+        $client->incr( 'marketing:access_sum' );
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -641,7 +650,7 @@
         type: '',
         dataUrl: '',
         success: function () {
-            <?php $client->incr( 'marketing:forward_sum' ); ?>
+            shareSuccess();
         },
     });
 
@@ -650,9 +659,14 @@
         link: link,
         imgUrl: imgUrl,
         success: function () {
-            <?php $client->incr( 'marketing:forward_sum' ); ?>
+            shareSuccess();
         },
     });
   });
+
+    function shareSuccess()
+    {
+        $.get( 'index.php?share=1', function() {} )
+    }
 </script>
 </html>
