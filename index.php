@@ -2,6 +2,7 @@
     require_once "jssdk.php";
     $jssdk = new JSSDK("wx196d136af4b7adab", "916f1c81827c9aa61c2e4a72258894e9");
     $signPackage = $jssdk->GetSignPackage();
+    $imgPrefix = 'https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -373,7 +374,7 @@
         <div class="icon-play"></div>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/1_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/1_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/1.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -389,7 +390,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/2_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/2_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -405,7 +406,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/3_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/3_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -421,7 +422,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/4_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/4_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -437,7 +438,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/5_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/5_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -453,7 +454,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="./img/6_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/6_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/6.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -466,9 +467,10 @@
 </div>
 
 <div class="load-mask">
-    <img src="./img/color-world.png">
-    <img id="pserson_img" src="./img/person-1.png">
-    <img class="start-btn" src="./img/click-button.png">
+    <img src="<?php echo $imgPrefix; ?>/img/color-world.png">
+    <img id="pserson_img_1" src="<?php echo $imgPrefix; ?>/img/person-1.png">
+    <img style="display: none;" id="pserson_img_2" src="<?php echo $imgPrefix; ?>/img/person-2.png">
+    <img class="start-btn" src="<?php echo $imgPrefix; ?>/img/click-button.png">
     <div class="load-bar">
         <div class="bar"></div>
     </div>
@@ -602,15 +604,17 @@
     /* 人物切换效果 */
     $( function() {
       setInterval( function() {
-          var img_selector = $( '#pserson_img' );
-          var pserson_src = img_selector.attr( 'src' );
-          if ( pserson_src.indexOf( 'person-1' ) >= 0 )
+          var pserson_1 = $( '#pserson_img_1' );
+          var pserson_2 = $( '#pserson_img_2' );
+          if ( pserson_1.css( 'display' ) == 'none' )
           {
-              img_selector.attr( 'src', './img/person-2.png' );
+              pserson_2.hide();
+              pserson_1.show();
           }
           else
           {
-              img_selector.attr( 'src', './img/person-1.png' );
+              pserson_1.hide();
+              pserson_2.show();
           }
       }, 500 );
     });
