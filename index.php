@@ -11,15 +11,30 @@
         'port'   => 6379
     ));
 
-    if ( isset( $_GET['share'] ) )
+    $type = isset( $_GET['type'] ) ? $_GET['type'] : '';
+
+    switch ( $type )
     {
-        /* 分享总数 */
-        return $client->incr( 'marketing:forward_sum' );
-    }
-    else
-    {
-        /* 访问总数 */
-        $client->incr( 'marketing:access_sum' );
+        /* 记录分享数量 */
+        case 'share':
+            return $client->incr( 'marketing:forward_sum' );
+        break;
+
+        /* 查看统计数据 */
+        case 'statistics':
+            $data = array();
+            $data['access_sum'] = $client->get( 'marketing:access_sum' );
+            $data['forward_sum'] = $client->get( 'marketing:forward_sum' );
+            echo '<pre>';
+            print_r( $data );
+            echo '<pre>';
+            die;
+        break;
+
+        /* 记录访问总数 */
+        default:
+            $client->incr( 'marketing:access_sum' );
+        break;
     }
 ?>
 <!DOCTYPE html>
@@ -666,7 +681,7 @@
 
     function shareSuccess()
     {
-        $.get( 'index.php?share=1', function() {} )
+        $.get( 'index.php?type=share', function() {} )
     }
 </script>
 </html>
