@@ -408,7 +408,7 @@
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="<?php echo $imgPrefix; ?>/img/1_Moment.jpg?ver=2018041301"
-               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/1.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>16.5w</span>
@@ -424,7 +424,7 @@
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="<?php echo $imgPrefix; ?>/img/2_Moment.jpg?ver=2018041301"
-               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>13.2w</span>
@@ -440,7 +440,7 @@
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="<?php echo $imgPrefix; ?>/img/3_Moment.jpg?ver=2018041301"
-               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>21.2w</span>
@@ -456,7 +456,7 @@
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="<?php echo $imgPrefix; ?>/img/4_Moment.jpg?ver=2018041301"
-               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/7.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>22.8w</span>
@@ -472,7 +472,7 @@
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
                poster="<?php echo $imgPrefix; ?>/img/5_Moment.jpg?ver=2018041301"
-               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4?ver=2018041701" type="video/mp4"></video>
+               src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/5.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
             <span>18.9w</span>
