@@ -404,7 +404,7 @@
         <div class="icon-play"></div>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="<?php echo $imgPrefix; ?>/img/1_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/3_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/3.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -420,7 +420,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="<?php echo $imgPrefix; ?>/img/2_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/4_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/4.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -436,7 +436,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="<?php echo $imgPrefix; ?>/img/3_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/2_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/2.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
@@ -452,7 +452,7 @@
         <i class="icon-play"></i>
         <video loop class="video" preload="auto" playsinline
                x5-video-player-type="h5" x5-video-player-fullscreen="false" webkit-playsinline
-               poster="<?php echo $imgPrefix; ?>/img/4_Moment.jpg?ver=2018041301"
+               poster="<?php echo $imgPrefix; ?>/img/7_Moment.jpg?ver=2018041301"
                src="https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing/7.mp4" type="video/mp4"></video>
         <div class="wrap-icons">
             <i class="icon-love"></i>
