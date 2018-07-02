@@ -38,7 +38,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> 会跳舞的光，了解一下 </title>
+    <title> 快来跳舞，看世界杯不如跳舞 </title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta name="x5-orientation" content="portrait">
     <style>
@@ -648,8 +648,8 @@
     ]
   });
 
-  var title  = '会跳舞的光，了解一下';
-  var desc   = '会跳舞的光，不知当跳不当跳';
+  var title  = '快来跳舞，看世界杯不如跳舞';
+  var desc   = 'Yeelight智能灯泡，C位强势出道';
   var link   = 'http://weixin.yeelight.com/marketing/index.php';
   var imgUrl = 'http://weixin.yeelight.com/marketing/img/share-3.png';
 
