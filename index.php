@@ -1,15 +1,12 @@
 <?php
     require './vendor/autoload.php';
+    require './config.php';
     require_once "jssdk.php";
-    $jssdk = new JSSDK("wx196d136af4b7adab", "916f1c81827c9aa61c2e4a72258894e9");
+    $jssdk = new JSSDK( $app_id, $app_key );
     $signPackage = $jssdk->GetSignPackage();
     $imgPrefix = 'https://cdn.awsbj0.fds.api.mi-img.com/cloud/marketing';
 
-    $client = new Predis\Client(array(
-        'scheme' => 'tcp',
-        'host'   => '192.168.48.128',
-        'port'   => 6379
-    ));
+    $client = new Predis\Client( $config );
 
     $type = isset( $_GET['type'] ) ? $_GET['type'] : '';
 
