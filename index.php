@@ -346,7 +346,7 @@
             width: 40px;
             height: 25px;
             background-size: cover;
-            background-image: url("./img/arrow-down.png?ver=2018041301");
+            background-image: url("./img/arrow-up.png?ver=2018041301");
             animation: slide_up .6s infinite ease-out both;
             -webkit-animation: slide_up .6s infinite ease-out both;
         }
