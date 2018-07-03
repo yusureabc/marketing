@@ -489,7 +489,7 @@
         <div class="bar"></div>
     </div>
 </div>
-<div class="wrap-icon-up">
+<div class="wrap-icon-up" id="icon-up">
     <i class="icon-up"></i>
 </div>
 <div class="mask-share">
@@ -515,7 +515,6 @@
       !isiOS && startBtn.addEventListener('click', startFn);
 
       function startFn(e) {
-          // console.log(e);
           var self = isiOS ? e.touches[0].target : e.target;
           self.style.display = 'none';
           $('.load-bar')[0].style.display = 'inline-block';
@@ -590,6 +589,11 @@
                   }
                   document.removeEventListener('touchmove', touchMoveHandler)
               }
+          }
+          /* 最后的 item 不显示箭头 */
+          if ( index == 3 )
+          {
+            $( '#icon-up' ).hide();
           }
       }
       for (var j = 0; j < loveIcons.length; j++) {
